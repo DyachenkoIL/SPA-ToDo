@@ -1,0 +1,16 @@
+<div class="container">
+    <p *customNgIf="todayCondition">Today is {{today | date}} / {{today | date:'dd/M/yy'}}</p>
+    <button type="button" (click)="todayCondition = !todayCondition" class="btn btn-default">Toggle</button><br />
+    <div [ngClass]="{'test-class':todayCondition}" class="table table-bordered table-striped">
+        <div class="row" *ngFor="let todo of list">
+            <div class="col-md-3">{{ todo.Id }}</div>
+            <div class="col-md-3">{{ todo.Name }}</div>
+            <div class="col-md-3">{{ 50 | percentage }}</div>
+            <div class="col-md-3">
+                <button type="button" (click)="edit(todo.Id)" class="btn btn-default">Edit</button>
+                <button type="button" (click)="delete(todo.Id)" class="btn btn-default">Delete</button>
+            </div>
+        </div>
+    </div>
+    <button type="button" (click)="add()" class="btn btn-primary">Add</button>
+</div>
