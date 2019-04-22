@@ -6,9 +6,6 @@ import { ToDoService } from "../../services/todo.service";
 @Component({
     selector: 'app-todo-list',
     templateUrl: './todo-list.component.html',
-    styles: [`
-        .test-class { background-color: #ff9e9e; }
-    `]
 })
 export class ToDoListComponent implements OnInit {
     private list: ToDo[];
@@ -21,11 +18,11 @@ export class ToDoListComponent implements OnInit {
         this.list = this.todoService.getAll();
     }
 
-    edit(id: number) {
+    update(id: number) {
         this.router.navigate([`/todo/${id}`]);
     }
 
-    add() {
+    create() {
         this.router.navigate([`/todo/new`]);
     }
 

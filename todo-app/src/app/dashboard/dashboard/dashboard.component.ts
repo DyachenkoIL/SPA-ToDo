@@ -8,7 +8,6 @@ import { DashboardService } from "../services/dashboard.service";
             <p>{{message}}</p>
         </div>
     `,
-    // providers: [DashboardService]
 })
 export class DashboardComponent implements OnInit {
     public messages: string[];

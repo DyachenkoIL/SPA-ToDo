@@ -17,7 +17,7 @@ export class ToDoEditComponent implements OnInit {
     }
 
     save() {
-        this.todoService.put(this.todo);
+        this.todoService.update(this.todo);
         this.router.navigate([`/todo`]);
     }
 }

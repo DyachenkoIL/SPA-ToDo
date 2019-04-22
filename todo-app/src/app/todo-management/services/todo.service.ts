@@ -8,9 +8,8 @@ export class ToDoService {
 
     constructor() {
         let collection: ToDo[] = [];
-        collection.push({ Id: 0, Name: 'Initialize a list' });
-        collection.push({ Id: 1, Name: 'Output what\'s in the list' });
-        this.key = 2;
+        collection.push({ Id: 0, Name: 'Hello', Body: "Make better todo-list ever", DateCreation: new Date(), DateModification: null });
+        this.key = 1;
         localStorage.setItem(this.collection_name, JSON.stringify(collection));
     }
 
@@ -22,16 +21,18 @@ export class ToDoService {
         return JSON.parse(localStorage.getItem(this.collection_name));
     }
     
-    post(todo: ToDo): number {
+    create(todo: ToDo): number {
         let collection = JSON.parse(localStorage.getItem(this.collection_name));
         todo.Id = this.key++;
+        todo.DateCreation = new Date();
         collection.push(todo);
         localStorage.setItem(this.collection_name, JSON.stringify(collection));
         return todo.Id;
     }
     
-    put(todo: ToDo) {
+    update(todo: ToDo) {
         let collection = JSON.parse(localStorage.getItem(this.collection_name));
+        todo.DateModification = new Date();
         collection[todo.Id] = todo;
         localStorage.setItem(this.collection_name, JSON.stringify(collection));
     }

@@ -1,0 +1,120 @@
+.form-group{
+    color: White;
+    width: 300px;
+    height: 30px;
+    background-color: black;
+    input {
+    color: White;
+    background-color: black;
+    }
+}
+
+body, html {
+    font-family: Helvetica;
+    margin: 0; padding: 0;
+
+    button, input {
+        outline: none;
+        background-color: transparent;
+        border: none;
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    ul, li {
+        list-style-type: none;
+        margin: 0; padding: 0;
+    }
+}
+
+.header {
+    align-items: center;
+    position: fixed;
+    left: 0; top: 0;
+    height: 60px;
+    width: 100vw;
+    background-color: black;
+    display: flex;
+    z-index: 2;
+
+    .logo {
+        color: White;
+        padding-left: 35px;
+        font-size: 1.5em;
+    }
+}
+
+.container {
+    padding-top: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    min-width: 100vw;
+}
+
+.btn-right{
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    background-color: black;
+    z-index: 3;
+}
+
+.toright{
+    color: white;
+    position: fixed;
+    top:7px;
+    right: 150px;
+    background-color: black;
+    z-index: 3;
+}
+
+.btn {
+    color: White;
+    width: 80px;
+    height: 30px;
+    background-color: black;
+    border: 2px solid orangered;
+    border-radius: 5px;
+    margin: 5px 10px;
+}
+
+ .note {
+     color: White;
+     min-width: 300px;
+     background: url("./todobg.jpg");
+     background-size: contain;
+     background-repeat: no-repeat;
+     background-position: center;
+     min-height: 250px;
+     padding: 45px 15px 60px 15px;
+     position: relative;
+     margin: 20px;
+     overflow: hidden;
+
+     .controls {
+         position: absolute;
+         bottom: 20px;
+         left: 60px;
+     }
+
+     .noteCaption {
+         font-size: 1.7em;
+         font-weight: bold;
+         margin-bottom: 50px;
+         margin-right: 35x;
+         max-width: 300px;
+         text-align: center;
+     }
+
+     .noteBody {
+         font-size: 1.1em;
+         max-width: 300px;
+     }
+ }

@@ -1,4 +1,4 @@
-<div class="blue-background red-background">
-    <router-outlet></router-outlet>
-</div>
-<!-- footer -->
+
+  <header class="header"><button (click)="onStart()" class="logo">ToDo-List - better what happened to you</button>
+  <p class="toright">{{ today | date:'dd/M/yy -- hh:mm' }}</p></header>
+  <router-outlet></router-outlet>

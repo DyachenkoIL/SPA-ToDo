@@ -12,8 +12,7 @@ export class AuthGuard implements CanActivate {
         if (!requiredPermission) {
             return true;
         }
-        // auth service
-
+        
         let canActivate = true;
 
         if (!canActivate) {

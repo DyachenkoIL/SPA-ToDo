@@ -17,7 +17,7 @@ export class ToDoCreateComponent implements OnInit {
     }
 
     save() {
-        this.todoService.post(this.todo);
+        this.todoService.create(this.todo);
         this.router.navigate([`/todo`]);
     }
 }
