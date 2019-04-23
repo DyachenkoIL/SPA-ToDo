@@ -1,23 +1,34 @@
 import { Injectable } from "@angular/core";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ToDo } from "../models/todo.model";
+import { Observable, of } from 'rxjs';
+const httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
-@Injectable()
+
+@Injectable({
+    providedIn: 'root'
+})
 export class ToDoService {
+    private todoUrl = "api/todo"
+
     private key: number = 0;
     private collection_name: string = 'ToDoList';
 
-    constructor() {
+    constructor(
+        ) {
         let collection: ToDo[] = [];
         collection.push({ Id: 0, Name: 'Hello', Body: "Make better todo-list ever", DateCreation: new Date(), DateModification: null });
         this.key = 1;
         localStorage.setItem(this.collection_name, JSON.stringify(collection));
     }
 
-    get(id: number): ToDo {
+    get(id: number): Observable<ToDo> {
         return JSON.parse(localStorage.getItem(this.collection_name))[id];
     }
 
-    getAll(): ToDo[] {
+    getAll(): Observable<ToDo[]> {
         return JSON.parse(localStorage.getItem(this.collection_name));
     }
     
@@ -41,5 +52,14 @@ export class ToDoService {
         let collection = JSON.parse(localStorage.getItem(this.collection_name));
         collection.splice(collection.findIndex(item => item.Id === id), 1);
         localStorage.setItem(this.collection_name, JSON.stringify(collection));
+    }
+
+    search(term: string): ToDo[] {
+        if (!term.trim()) {
+            return JSON.parse(localStorage.getItem(this.collection_name));
+        }
+        let collection = JSON.parse(localStorage.getItem(this.collection_name));
+        collection.splice(collection.findIndex(item => item.Name === term));
+        return JSON.parse(collection);
     }
 }
